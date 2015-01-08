@@ -1,0 +1,19 @@
+﻿namespace King.MQC.Program
+{
+    public class Startup : MqcApplication
+    {
+        public override void Start()
+        {
+            //Should these be handled seperately?
+            GlobalConfiguration.Configure(MqcConfig.Register);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            base.Start();
+        }
+
+        public override void End()
+        {
+            base.End();
+        }
+    }
+}

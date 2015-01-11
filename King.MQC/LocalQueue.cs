@@ -18,7 +18,7 @@
 
         public T Get<T>(string route, object model = null)
         {
-            return default(T);
+            return this.data.ContainsKey(route) ? (T)this.data[route].Pop() :  default(T);
         }
     }
 }

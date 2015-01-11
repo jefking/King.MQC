@@ -4,11 +4,16 @@
 
     public class LocalQueue : IQueue
     {
-        protected readonly Stack<object> data = new Stack<object>();
+        protected readonly IDictionary<string, Stack<object>> data = new Dictionary<string, Stack<object>>();
 
         public void Send(string route, object model)
         {
-            this.data.Push(model);
+            if (!data.ContainsKey(route))
+            {
+                this.data.Add(route, new Stack<object>());
+            }
+
+            this.data[route].Push(model);
         }
 
         public T Get<T>(string route, object model = null)

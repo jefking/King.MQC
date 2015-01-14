@@ -1,24 +1,28 @@
 ﻿namespace King.MQC
 {
+    using Newtonsoft.Json;
     using System.Collections.Generic;
 
+    /// <summary>
+    /// Temporary Fake Queue, to demonstrate items entering queue, via route
+    /// </summary>
     public class LocalQueue : IQueue
     {
-        protected readonly IDictionary<string, Stack<object>> data = new Dictionary<string, Stack<object>>();
+        protected readonly IDictionary<string, Stack<string>> data = new Dictionary<string, Stack<string>>();
 
         public void Send(string route, object model)
         {
             if (!data.ContainsKey(route))
             {
-                this.data.Add(route, new Stack<object>());
+                this.data.Add(route, new Stack<string>());
             }
 
-            this.data[route].Push(model);
+            this.data[route].Push(JsonConvert.SerializeObject(model));
         }
 
         public T Get<T>(string route, object model = null)
         {
-            return this.data.ContainsKey(route) ? (T)this.data[route].Pop() :  default(T);
+            return this.data.ContainsKey(route) ? JsonConvert.DeserializeObject<T>(this.data[route].Pop()) : default(T);
         }
     }
 }

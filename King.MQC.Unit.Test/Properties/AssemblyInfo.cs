@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("King.MQC.Unit.Test")]
-[assembly: AssemblyDescription("MQC Unit Tests")]
+[assembly: AssemblyDescription("Model Queue Controller Unit Tests")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("King.MQC.Unit.Test")]

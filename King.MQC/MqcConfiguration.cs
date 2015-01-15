@@ -18,6 +18,11 @@
         /// Queue
         /// </summary>
         protected IQueue queue;
+
+        protected static BindingFlags methodFlags = BindingFlags.Public
+            | BindingFlags.Instance
+            | BindingFlags.InvokeMethod
+            | BindingFlags.DeclaredOnly;
         #endregion
 
         #region Properties
@@ -51,10 +56,14 @@
             foreach (var type in controllers)
             {
                 var classRoute = type.Name.EndsWith("Controller") ? type.Name.Replace("Controller", string.Empty) : type.Name;
-                foreach (var method in type.GetMembers(BindingFlags.Public | BindingFlags.Instance | BindingFlags.InvokeMethod))
-                {
-                    var route = string.Format("{0}.{1}", classRoute, method.Name);
+                
+                var methods = from meth in type.GetMembers(methodFlags)
+                              where meth.MemberType != MemberTypes.Constructor
+                              select meth.Name;
 
+                foreach (var method in methods)
+                {
+                    var route = string.Format("{0}.{1}", classRoute, method);
                     this.Routes.Add(route, type);
                 }
             }

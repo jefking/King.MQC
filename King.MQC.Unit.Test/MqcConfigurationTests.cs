@@ -26,8 +26,8 @@
 
             Assert.IsNotNull(config.Routes);
             Assert.AreEqual(2, config.Routes.Count);
-            Assert.AreEqual(typeof(TestController), config.Routes["test.get"]);
-            Assert.AreEqual(typeof(TestController), config.Routes["test.set"]);
+            Assert.AreEqual(typeof(TestController), config.Routes["Test.Get"]);
+            Assert.AreEqual(typeof(TestController), config.Routes["Test.Set"]);
         }
     }
 }

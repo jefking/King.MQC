@@ -9,7 +9,7 @@
     /// Attribute based routing
     /// </remarks>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Field, AllowMultiple = true, Inherited = true)]
-    public class RouteAttribute : Attribute
+    public virtual class RouteAttribute : Attribute
     {
         #region Members
         /// <summary>
@@ -46,7 +46,7 @@
         /// <summary>
         /// Route Name
         /// </summary>
-        public string Name
+        public virtual string Name
         {
             get
             {

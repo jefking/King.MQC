@@ -22,7 +22,7 @@
         /// <summary>
         /// Routes
         /// </summary>
-        public static RouteCollection Routes
+        public virtual static RouteCollection Routes
         {
             get
             {

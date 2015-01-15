@@ -8,7 +8,7 @@
     /// <remarks>
     /// Enables loading and running of framework
     /// </remarks>
-    public class MqcApplication : IDisposable
+    public virtual class MqcApplication : IDisposable
     {
         #region Methods
         public virtual void Start()

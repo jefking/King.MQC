@@ -1,16 +1,11 @@
 ﻿namespace King.MQC
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Reflection;
     using System.Linq;
+    using System.Reflection;
 
     /// <summary>
     /// MQC Configuration
     /// </summary>
-    /// <remarks>
-    /// Configuration passed to registration event
-    /// </remarks>
     public class MqcConfiguration
     {
         #region Members
@@ -19,10 +14,10 @@
         /// </summary>
         protected IQueue queue;
 
-        protected static BindingFlags methodFlags = BindingFlags.Public
-            | BindingFlags.Instance
-            | BindingFlags.InvokeMethod
-            | BindingFlags.DeclaredOnly;
+        /// <summary>
+        /// Method Binding Flags
+        /// </summary>
+        protected static BindingFlags methodFlags = BindingFlags.Public | BindingFlags.Instance | BindingFlags.InvokeMethod | BindingFlags.DeclaredOnly;
         #endregion
 
         #region Properties
@@ -42,7 +37,7 @@
         /// <summary>
         /// Map MQC Attribute Routes
         /// </summary>
-        public void MapMqcAttributeRoutes()
+        public virtual void MapMqcAttributeRoutes()
         {
             var assembly = Assembly.GetCallingAssembly();
 
@@ -60,7 +55,7 @@
         /// </summary>
         /// <param name="assembly">Assembly</param>
         /// <returns>Route Collection</returns>
-        public RouteCollection GetControllers(Assembly assembly)
+        public virtual RouteCollection GetControllers(Assembly assembly)
         {
             var routes = new RouteCollection();
             var controllers = from cls in assembly.GetTypes()
@@ -90,7 +85,7 @@
         /// Default Queue
         /// </summary>
         /// <param name="queue">Queue</param>
-        public void DefaultQueue(IQueue queue)
+        public virtual void DefaultQueue(IQueue queue)
         {
             this.queue = queue;
         }

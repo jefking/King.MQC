@@ -1,7 +1,6 @@
 ﻿namespace King.MQC.Unit.Test
 {
     using NUnit.Framework;
-    using System;
     using System.Reflection;
 
     [TestFixture]

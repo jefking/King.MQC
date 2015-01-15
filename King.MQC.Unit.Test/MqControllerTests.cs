@@ -2,7 +2,6 @@
 {
     using NUnit.Framework;
     using System;
-    using System.Reflection;
 
     [TestFixture]
     public class MqControllerTests

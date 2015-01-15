@@ -1,6 +1,7 @@
-﻿using System;
-namespace King.MQC
+﻿namespace King.MQC
 {
+    using System;
+
     /// <summary>
     /// Model Queue Controller
     /// </summary>

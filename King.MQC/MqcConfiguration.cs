@@ -12,7 +12,7 @@
     /// </remarks>
     public class MqcConfiguration
     {
-        #region Properties
+        #region Members
         /// <summary>
         /// Queue
         /// </summary>

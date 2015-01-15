@@ -8,8 +8,15 @@
     /// </summary>
     public class LocalQueue : IQueue
     {
+        #region Members
+        /// <summary>
+        /// Key:String; Route
+        /// Stack:String; data in Json
+        /// </summary>
         protected readonly IDictionary<string, Stack<string>> data = new Dictionary<string, Stack<string>>();
+        #endregion
 
+        #region Methods
         public void Send(string route, object model)
         {
             if (!data.ContainsKey(route))
@@ -24,5 +31,6 @@
         {
             return this.data.ContainsKey(route) ? JsonConvert.DeserializeObject<T>(this.data[route].Pop()) : default(T);
         }
+        #endregion
     }
 }

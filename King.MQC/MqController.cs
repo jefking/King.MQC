@@ -1,4 +1,5 @@
-﻿namespace King.MQC
+﻿using System;
+namespace King.MQC
 {
     /// <summary>
     /// Model Queue Controller
@@ -19,6 +20,9 @@
         /// <summary>
         /// Default Constructor
         /// </summary>
+        /// <remarks>
+        /// Default 'queue', direct calling
+        /// </remarks>
         public MqController()
             : this(new DirectQueue())
         {
@@ -30,6 +34,11 @@
         /// <param name="queue">Queue</param>
         public MqController(IQueue queue)
         {
+            if (null == queue)
+            {
+                throw new ArgumentNullException("queue");
+            }
+
             this.queue = queue;
         }
         #endregion

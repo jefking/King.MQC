@@ -3,11 +3,8 @@
     using System;
 
     /// <summary>
-    /// Route Attribute
-    /// </summary>
-    /// <remarks>
     /// Attribute based routing
-    /// </remarks>
+    /// </summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Field, AllowMultiple = true, Inherited = true)]
     public class RouteAttribute : Attribute
     {

@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="DirectQueueTests.cs" />
     <Compile Include="MqcConfigurationTests.cs" />
+    <Compile Include="MqControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestController.cs" />
   </ItemGroup>

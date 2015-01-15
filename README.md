@@ -1,6 +1,12 @@
 Model Queue Controller
 ========
 
+## ALPHA - PRE-RELEASE
+
+### Current
+- Routing setup (Controller Classes)
+- Call methods via routing
+
 ### Notes
 web api everything
 you dont wire anything up
@@ -20,7 +26,6 @@ multiple language support; route between languages
 makes testing really nice, as you dont have to worry about mocking and dependancies as much.
 
 High entropy, many smaller parts
-
 
 ### TODO
 Controllers

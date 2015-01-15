@@ -20,7 +20,7 @@
         /// Default Constructor
         /// </summary>
         public MqController()
-            :this(new LocalQueue())
+            : this(new DirectQueue())
         {
         }
 

@@ -9,7 +9,7 @@
     /// Attribute based routing
     /// </remarks>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Field, AllowMultiple = true, Inherited = true)]
-    public virtual class RouteAttribute : Attribute
+    public class RouteAttribute : Attribute
     {
         #region Members
         /// <summary>

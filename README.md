@@ -20,3 +20,21 @@ multiple language support; route between languages
 makes testing really nice, as you dont have to worry about mocking and dependancies as much.
 
 High entropy, many smaller parts
+
+
+### TODO
+Controllers
+- Stateful? Should be able to load just one and keep using it? Cache
+- Retry for queue/dequeue etc
+
+Calling
+- Thread models, single threaded, eventing, etc.
+- Failures
+- App domains
+
+Queue Types
+- Direct, no-queue
+- Local, in memory queue
+- Azure Storage
+- Service Bus
+- etc.

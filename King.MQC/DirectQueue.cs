@@ -1,10 +1,9 @@
 ﻿namespace King.MQC
 {
-    #region IQueue
     /// <summary>
-    /// Queue Interface
+    /// Deftault 'Queue'; direct binding
     /// </summary>
-    public interface IQueue
+    public class DirectQueue : IQueue
     {
         #region Methods
         /// <summary>
@@ -12,7 +11,9 @@
         /// </summary>
         /// <param name="route">Route</param>
         /// <param name="model">Model</param>
-        void Send(string route, object model);
+        public virtual void Send(string route, object model)
+        {
+        }
 
         /// <summary>
         /// Get Data
@@ -21,8 +22,10 @@
         /// <param name="route">Route</param>
         /// <param name="model">Model</param>
         /// <returns>Data</returns>
-        T Get<T>(string route, object model = null);
+        public virtual T Get<T>(string route, object model = null)
+        {
+            return default(T);
+        }
         #endregion
     }
-    #endregion
 }

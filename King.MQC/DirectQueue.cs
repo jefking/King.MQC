@@ -24,8 +24,9 @@
         public virtual void Send(string route, object model)
         {
             var t = RouteTable.Routes[route];
+            var methodName = route.Substring(route.LastIndexOf(".") + 1);
             var obj = Activator.CreateInstance(t);
-            t.InvokeMember("Set", methodFlags, null, obj, new[] { model });
+            t.InvokeMember(methodName, methodFlags, null, obj, new[] { model });
         }
 
         /// <summary>
@@ -38,8 +39,9 @@
         public virtual T Get<T>(string route, object model = null)
         {
             var t = RouteTable.Routes[route];
+            var methodName = route.Substring(route.LastIndexOf(".") + 1);
             var obj = Activator.CreateInstance(t);
-            return (T)t.InvokeMember("Get", methodFlags, null, obj, null);
+            return (T)t.InvokeMember(methodName, methodFlags, null, obj, null);
         }
         #endregion
     }

@@ -1,10 +1,20 @@
 ﻿namespace King.MQC
 {
+    using System;
+    using System.Reflection;
+
     /// <summary>
     /// Deftault 'Queue'; direct binding
     /// </summary>
     public class DirectQueue : IQueue
     {
+        #region Members
+        /// <summary>
+        /// Method Binding Flags
+        /// </summary>
+        protected static BindingFlags methodFlags = BindingFlags.Public | BindingFlags.Instance | BindingFlags.InvokeMethod | BindingFlags.DeclaredOnly;
+        #endregion
+
         #region Methods
         /// <summary>
         /// Send
@@ -13,6 +23,9 @@
         /// <param name="model">Model</param>
         public virtual void Send(string route, object model)
         {
+            var t = RouteTable.Routes[route];
+            var obj = Activator.CreateInstance(t);
+            t.InvokeMember("Set", methodFlags, null, obj, new[] { model });
         }
 
         /// <summary>
@@ -24,7 +37,9 @@
         /// <returns>Data</returns>
         public virtual T Get<T>(string route, object model = null)
         {
-            return default(T);
+            var t = RouteTable.Routes[route];
+            var obj = Activator.CreateInstance(t);
+            return (T)t.InvokeMember("Get", methodFlags, null, obj, null);
         }
         #endregion
     }

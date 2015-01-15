@@ -2,7 +2,7 @@
 {
     public class TestController : MqController
     {
-        private int data = 0;
+        private static volatile int data = 0;
 
         public int Get()
         {
@@ -11,7 +11,7 @@
 
         public void Set(int id)
         {
-            this.data = id;
+            data = id;
         }
     }
 }

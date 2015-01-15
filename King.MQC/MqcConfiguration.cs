@@ -44,7 +44,10 @@
             // Get all MqControllers
             foreach (var route in this.GetControllers(assembly))
             {
-                this.Routes.Add(route.Key, route.Value);
+                if (!this.Routes.ContainsKey(route.Key))
+                {
+                    this.Routes.Add(route.Key, route.Value);
+                }
             }
 
             // Get all Routes

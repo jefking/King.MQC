@@ -1,4 +1,22 @@
-King.MQC
+Model Queue Controller
 ========
 
-The original MQC
+### Notes
+web api everything
+you dont wire anything up
+queues could go in place of each layer, if needed
+
+web call -> web api -> dal -> storage
+web call -> web api -> queue -> dal (web api) -> queue -> storage
+
+each place failure is handled, and retry is handled
+
+model based throughout system.
+each unit is scalable.
+
+multiple language support; route between languages
+
+1 mockable class: Get/Put, url + data
+makes testing really nice, as you dont have to worry about mocking and dependancies as much.
+
+High entropy, many smaller parts

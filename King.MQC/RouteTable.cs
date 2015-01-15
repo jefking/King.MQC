@@ -15,14 +15,14 @@
         /// <summary>
         /// Routes
         /// </summary>
-        protected static readonly IDictionary<string, Type> routes = null;
+        protected static readonly RouteCollection routes = new RouteCollection();
         #endregion
 
         #region Properties
         /// <summary>
         /// Routes
         /// </summary>
-        public static IDictionary<string, Type> Routes
+        public static RouteCollection Routes
         {
             get
             {

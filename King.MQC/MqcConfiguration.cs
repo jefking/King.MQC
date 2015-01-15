@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Reflection;
+    using System.Linq;
 
     /// <summary>
     /// MQC Configuration
@@ -23,7 +24,7 @@
         /// <summary>
         /// Routes
         /// </summary>
-        public IDictionary<string, Type> Routes
+        public RouteCollection Routes
         {
             get
             {
@@ -40,14 +41,21 @@
         {
             //Map routes dynamically
 
-            var assembly = Assembly.GetExecutingAssembly();
+            var assembly = Assembly.GetCallingAssembly();
 
             // Get all MqControllers
-            foreach (var type in assembly.GetTypes())
-            {
-                if (type.BaseType == typeof(MqController))
-                {
+            var controllers = from cls in assembly.GetTypes()
+                              where cls.BaseType == typeof(MqController)
+                              select cls;
 
+            foreach (var type in controllers)
+            {
+                var classRoute = type.Name.EndsWith("Controller") ? type.Name.Replace("Controller", string.Empty) : type.Name;
+                foreach (var method in type.GetMembers(BindingFlags.Public | BindingFlags.Instance | BindingFlags.InvokeMethod))
+                {
+                    var route = string.Format("{0}.{1}", classRoute, method.Name);
+
+                    this.Routes.Add(route, type);
                 }
             }
 

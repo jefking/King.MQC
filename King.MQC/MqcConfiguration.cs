@@ -41,7 +41,6 @@
         {
             var assembly = Assembly.GetCallingAssembly();
 
-            // Get all MqControllers
             foreach (var route in this.GetControllers(assembly))
             {
                 if (!this.Routes.ContainsKey(route.Key))
@@ -50,7 +49,13 @@
                 }
             }
 
-            // Get all Routes
+            foreach (var route in this.GetAttributes(assembly))
+            {
+                if (!this.Routes.ContainsKey(route.Key))
+                {
+                    this.Routes.Add(route.Key, route.Value);
+                }
+            }
         }
 
         /// <summary>
@@ -78,6 +83,38 @@
                     var route = string.Format("{0}.{1}", classRoute, method);
 
                     routes.Add(route, type);
+                }
+            }
+
+            return routes;
+        }
+
+        /// <summary>
+        /// Get Attributes
+        /// </summary>
+        /// <param name="assembly">Assembly</param>
+        /// <returns>Route Collection</returns>
+        public virtual RouteCollection GetAttributes(Assembly assembly)
+        {
+            var routes = new RouteCollection();
+
+            foreach (var type in assembly.GetTypes())
+            {
+                var attribute = type.GetCustomAttribute<RouteAttribute>(false);
+                if (null != attribute)
+                {
+                    var classRoute = attribute.Name;
+
+                    var methods = from meth in type.GetMembers(methodFlags)
+                                  where meth.MemberType != MemberTypes.Constructor
+                                  select meth.Name;
+
+                    foreach (var method in methods)
+                    {
+                        var route = string.Format("{0}.{1}", classRoute, method);
+
+                        routes.Add(route, type);
+                    }
                 }
             }
 

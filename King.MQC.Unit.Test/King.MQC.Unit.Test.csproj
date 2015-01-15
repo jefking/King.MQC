@@ -61,6 +61,7 @@
     <Compile Include="MqControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestController.cs" />
+    <Compile Include="TestNonController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\King.MQC\King.MQC.csproj">

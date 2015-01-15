@@ -20,14 +20,6 @@
 
         #region Constructors
         /// <summary>
-        /// Default Constructor
-        /// </summary>
-        public RouteAttribute()
-            :this(Guid.NewGuid().ToString()) //Set-up auto-mapping
-        {
-        }
-
-        /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="name">Route Name</param>

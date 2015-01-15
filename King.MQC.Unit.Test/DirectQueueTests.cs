@@ -38,5 +38,19 @@
 
             Assert.AreEqual(expected, value);
         }
+
+        [Test]
+        public void TestNonRoundTrip()
+        {
+            var random = new Random();
+            var expected = random.Next();
+
+            var queue = new DirectQueue();
+            queue.Send("TestNon.Set", expected);
+
+            var value = queue.Get<int>("TestNon.Get");
+
+            Assert.AreEqual(expected, value);
+        }
     }
 }

@@ -4,7 +4,7 @@
     using System.Collections.Generic;
 
     /// <summary>
-    /// Temporary Fake Queue, to demonstrate items entering queue, via route
+    /// In application queuing
     /// </summary>
     public class LocalQueue : IQueue
     {
@@ -17,6 +17,11 @@
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Send
+        /// </summary>
+        /// <param name="route">Route</param>
+        /// <param name="model">Model</param>
         public virtual void Send(string route, object model)
         {
             if (!data.ContainsKey(route))
@@ -27,6 +32,13 @@
             this.data[route].Push(JsonConvert.SerializeObject(model));
         }
 
+        /// <summary>
+        /// Get Data
+        /// </summary>
+        /// <typeparam name="T">Type</typeparam>
+        /// <param name="route">Route</param>
+        /// <param name="model">Model</param>
+        /// <returns>Data</returns>
         public virtual T Get<T>(string route, object model = null)
         {
             return this.data.ContainsKey(route) ? JsonConvert.DeserializeObject<T>(this.data[route].Pop()) : default(T);

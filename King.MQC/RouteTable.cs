@@ -3,13 +3,13 @@
     /// <summary>
     /// Route Table
     /// </summary>
-    public class RouteTable
+    public static class RouteTable
     {
         #region Members
         /// <summary>
         /// Routes
         /// </summary>
-        protected static readonly RouteCollection routes = new RouteCollection();
+        private static readonly RouteCollection routes = new RouteCollection();
         #endregion
 
         #region Properties

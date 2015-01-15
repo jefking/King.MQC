@@ -42,6 +42,7 @@
 
             var assembly = Assembly.GetExecutingAssembly();
 
+            // Get all MqControllers
             foreach (var type in assembly.GetTypes())
             {
                 if (type.BaseType == typeof(MqController))
@@ -50,7 +51,6 @@
                 }
             }
 
-            // Get all MqControllers
             // Get all Routes
         }
 

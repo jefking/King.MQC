@@ -10,17 +10,22 @@
     /// </remarks>
     public class MqcApplication : IDisposable
     {
+        #region Methods
         public virtual void Start()
         {
         }
+
         public virtual void End()
         {
         }
+
         public void Dispose()
         {
         }
+
         public virtual void Dispose(bool disposing)
         {
         }
+        #endregion
     }
 }

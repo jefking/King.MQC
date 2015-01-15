@@ -27,10 +27,10 @@
 
             Assert.IsNotNull(config.Routes);
             Assert.AreEqual(4, config.Routes.Count);
-            Assert.AreEqual(typeof(TestController), config.Routes["Test.Get"]);
-            Assert.AreEqual(typeof(TestController), config.Routes["Test.Set"]);
-            Assert.AreEqual(typeof(TestNonController), config.Routes["TestNon.Get"]);
-            Assert.AreEqual(typeof(TestNonController), config.Routes["TestNon.Set"]);
+            Assert.AreEqual(typeof(TestController), config.Routes["Test/Get"]);
+            Assert.AreEqual(typeof(TestController), config.Routes["Test/Set"]);
+            Assert.AreEqual(typeof(TestNonController), config.Routes["TestNon/Get"]);
+            Assert.AreEqual(typeof(TestNonController), config.Routes["TestNon/Set"]);
         }
 
         [Test]
@@ -43,8 +43,8 @@
 
             Assert.IsNotNull(routes);
             Assert.AreEqual(2, routes.Count);
-            Assert.AreEqual(typeof(TestController), routes["Test.Get"]);
-            Assert.AreEqual(typeof(TestController), routes["Test.Set"]);
+            Assert.AreEqual(typeof(TestController), routes["Test/Get"]);
+            Assert.AreEqual(typeof(TestController), routes["Test/Set"]);
         }
 
         [Test]
@@ -57,8 +57,8 @@
 
             Assert.IsNotNull(routes);
             Assert.AreEqual(2, routes.Count);
-            Assert.AreEqual(typeof(TestNonController), routes["TestNon.Get"]);
-            Assert.AreEqual(typeof(TestNonController), routes["TestNon.Set"]);
+            Assert.AreEqual(typeof(TestNonController), routes["TestNon/Get"]);
+            Assert.AreEqual(typeof(TestNonController), routes["TestNon/Set"]);
         }
     }
 }

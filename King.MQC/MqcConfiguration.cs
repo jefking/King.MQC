@@ -80,7 +80,7 @@
 
                 foreach (var method in methods)
                 {
-                    var route = string.Format("{0}.{1}", classRoute, method);
+                    var route = string.Format("{0}/{1}", classRoute, method);
 
                     routes.Add(route, type);
                 }
@@ -111,7 +111,7 @@
 
                     foreach (var method in methods)
                     {
-                        var route = string.Format("{0}.{1}", classRoute, method);
+                        var route = string.Format("{0}/{1}", classRoute, method);
 
                         routes.Add(route, type);
                     }

@@ -5,7 +5,7 @@
     /// <summary>
     /// Attribute based routing
     /// </summary>
-    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Field, AllowMultiple = true, Inherited = true)]
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = true)]
     public class RouteAttribute : Attribute
     {
         #region Members

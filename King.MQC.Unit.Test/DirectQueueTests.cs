@@ -32,9 +32,9 @@
             var expected = random.Next();
 
             var queue = new DirectQueue();
-            queue.Send("Test.Set", expected);
+            queue.Send("Test/Set", expected);
 
-            var value = queue.Get<int>("Test.Get");
+            var value = queue.Get<int>("Test/Get");
 
             Assert.AreEqual(expected, value);
         }
@@ -46,9 +46,9 @@
             var expected = random.Next();
 
             var queue = new DirectQueue();
-            queue.Send("TestNon.Set", expected);
+            queue.Send("TestNon/Set", expected);
 
-            var value = queue.Get<int>("TestNon.Get");
+            var value = queue.Get<int>("TestNon/Get");
 
             Assert.AreEqual(expected, value);
         }

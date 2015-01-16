@@ -1,6 +1,7 @@
 ﻿namespace King.MQC.Unit.Test
 {
     using King.MQC.Unit.Test.Routes;
+    using NSubstitute;
     using NUnit.Framework;
     using System;
     using System.Reflection;
@@ -125,6 +126,18 @@
 
             Assert.IsNotNull(routes);
             Assert.AreEqual(2, routes.Count);
+        }
+
+        [Test]
+        public void DefaultRouter()
+        {
+            var expected = Substitute.For<IRouteTo>();
+            var config = new MqcConfiguration
+            {
+                DefaultRouter = expected,
+            };
+
+            Assert.AreEqual(expected, config.DefaultRouter);
         }
     }
 }

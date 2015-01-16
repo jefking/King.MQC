@@ -32,6 +32,15 @@
                 return RouteTable.Routes;
             }
         }
+
+        /// <summary>
+        /// Default Router
+        /// </summary>
+        public IRouteTo DefaultRouter
+        {
+            get;
+            set;
+        }
         #endregion
 
         #region Methods
@@ -103,15 +112,6 @@
             }
 
             return routes;
-        }
-
-        /// <summary>
-        /// Default Router
-        /// </summary>
-        /// <param name="router">Route To</param>
-        public virtual void DefaultQueue(IRouteTo router)
-        {
-            this.router = router;
         }
         #endregion
     }

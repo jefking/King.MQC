@@ -16,7 +16,7 @@
         [Test]
         public void IsSortedDictionary()
         {
-            Assert.IsNotNull(new RouteCollection() as SortedDictionary<string, RouteType>);
+            Assert.IsNotNull(new RouteCollection() as SortedDictionary<string, RouteEntry>);
         }
 
         [Test]

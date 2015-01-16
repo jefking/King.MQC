@@ -7,7 +7,7 @@
     /// <summary>
     /// Collection or Route Data
     /// </summary>
-    public class RouteCollection : SortedDictionary<string, RouteType>
+    public class RouteCollection : SortedDictionary<string, RouteEntry>
     {
         #region Methods
         /// <summary>
@@ -19,7 +19,7 @@
         /// <param name="methodName">Method Name</param>
         public void Add(string className, string alias, Type type, string methodName = null)
         {
-            var route = new RouteType
+            var route = new RouteEntry
             {
                 Type = type,
                 Method = methodName ?? alias,

@@ -14,7 +14,7 @@
         /// <summary>
         /// Queue
         /// </summary>
-        protected readonly IQueue queue = null;
+        protected readonly IRouteTo queue = null;
         #endregion
 
         #region Constructors
@@ -25,7 +25,7 @@
         /// Default 'queue', direct calling
         /// </remarks>
         public MqController()
-            : this(new DirectQueue())
+            : this(new DirectRoute())
         {
         }
 
@@ -33,7 +33,7 @@
         /// Constructor
         /// </summary>
         /// <param name="queue">Queue</param>
-        public MqController(IQueue queue)
+        public MqController(IRouteTo queue)
         {
             if (null == queue)
             {

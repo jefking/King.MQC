@@ -13,7 +13,7 @@
         /// <summary>
         /// Queue
         /// </summary>
-        protected IQueue queue;
+        protected IRouteTo queue;
 
         /// <summary>
         /// Method Binding Flags
@@ -109,7 +109,7 @@
         /// Default Queue
         /// </summary>
         /// <param name="queue">Queue</param>
-        public virtual void DefaultQueue(IQueue queue)
+        public virtual void DefaultQueue(IRouteTo queue)
         {
             this.queue = queue;
         }

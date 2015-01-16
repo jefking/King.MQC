@@ -16,13 +16,13 @@
         [Test]
         public void Constructor()
         {
-            new DirectQueue();
+            new DirectRoute();
         }
 
         [Test]
         public void IsIQueue()
         {
-            Assert.IsNotNull(new DirectQueue() as IQueue);
+            Assert.IsNotNull(new DirectRoute() as IRouteTo);
         }
 
         [Test]
@@ -31,7 +31,7 @@
             var random = new Random();
             var expected = random.Next();
 
-            var queue = new DirectQueue();
+            var queue = new DirectRoute();
             queue.Send("Test/Blue", expected);
 
             var value = queue.Get<int>("Test/Get");
@@ -45,7 +45,7 @@
             var random = new Random();
             var expected = random.Next();
 
-            var queue = new DirectQueue();
+            var queue = new DirectRoute();
             queue.Send("TestNon/Set", expected);
 
             var value = queue.Get<int>("TestNon/Red");

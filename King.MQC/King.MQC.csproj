@@ -47,7 +47,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DirectQueue.cs" />
+    <Compile Include="DirectRoute.cs" />
     <Compile Include="GlobalConfiguration.cs" />
     <Compile Include="Interfaces.cs" />
     <Compile Include="LocalQueue.cs" />
@@ -58,7 +58,7 @@
     <Compile Include="RouteAttribute.cs" />
     <Compile Include="RouteCollection.cs" />
     <Compile Include="RouteTable.cs" />
-    <Compile Include="RouteType.cs" />
+    <Compile Include="RouteEntry.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

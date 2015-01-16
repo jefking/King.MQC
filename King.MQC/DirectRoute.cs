@@ -4,9 +4,9 @@
     using System.Reflection;
 
     /// <summary>
-    /// Deftault 'Queue'; direct binding
+    /// Direct Route, no queue (default)
     /// </summary>
-    public class DirectQueue : IQueue
+    public class DirectRoute : IRouteTo
     {
         #region Members
         /// <summary>
@@ -23,9 +23,7 @@
         /// <param name="model">Model</param>
         public virtual void Send(string route, object model = null)
         {
-            var t = RouteTable.Routes[route];
-            var obj = Activator.CreateInstance(t.Type);
-            t.Type.InvokeMember(t.Method, methodFlags, null, obj, new[] { model });
+            this.Invoke(route, model);
         }
 
         /// <summary>
@@ -37,10 +35,21 @@
         /// <returns>Data</returns>
         public virtual T Get<T>(string route, object model = null)
         {
+            return (T)this.Invoke(route, model);
+        }
+
+        /// <summary>
+        /// Invoke Route
+        /// </summary>
+        /// <param name="route">Route</param>
+        /// <param name="model">Model</param>
+        /// <returns>Return Value</returns>
+        public virtual object Invoke(string route, object model = null)
+        {
             var t = RouteTable.Routes[route];
-            var methodName = route.Substring(route.LastIndexOf('/') + 1);
             var obj = Activator.CreateInstance(t.Type);
-            return (T)t.Type.InvokeMember(t.Method, methodFlags, null, obj, null);
+            var paramaters = null == model ? null : new[] { model };
+            return t.Type.InvokeMember(t.Method, methodFlags, null, obj, paramaters);
         }
         #endregion
     }

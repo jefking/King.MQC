@@ -6,7 +6,7 @@
     /// <summary>
     /// In application queuing
     /// </summary>
-    public class LocalQueue : IQueue
+    public class LocalQueue : IRouteTo
     {
         #region Members
         /// <summary>

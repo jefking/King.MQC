@@ -2,9 +2,9 @@
 {
     #region IQueue
     /// <summary>
-    /// Queue Interface
+    /// Route To Interface
     /// </summary>
-    public interface IQueue
+    public interface IRouteTo
     {
         #region Methods
         /// <summary>

@@ -8,7 +8,7 @@
             config.MapMqcAttributeRoutes();
 
             // Default Queue
-            config.DefaultQueue(new DirectQueue()); //Queue types should be based on routing rules
+            config.DefaultRouter = new DirectRoute(); //Queue types should be based on routing rules
         }
     }
 }

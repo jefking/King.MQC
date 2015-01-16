@@ -6,7 +6,7 @@
     {
         public void Do()
         {
-            base.queue.Send("Actions.Done");
+            base.router.Send("Actions.Done");
         }
 
         public void Done()

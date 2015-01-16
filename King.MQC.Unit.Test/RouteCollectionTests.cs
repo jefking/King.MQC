@@ -18,5 +18,20 @@
         {
             Assert.IsNotNull(new RouteCollection() as SortedDictionary<string, Type>);
         }
+
+        [Test]
+        public void Add()
+        {
+            var className = Guid.NewGuid().ToString();
+            var methodName = Guid.NewGuid().ToString();
+            var type = typeof(RouteCollectionTests);
+
+            var routes = new RouteCollection();
+            routes.Add(className, methodName, type);
+
+            var key = string.Format("{0}/{1}", className, methodName);
+            Assert.IsNotNull(routes[key]);
+            Assert.AreEqual(routes[key], type);
+        }
     }
 }

@@ -12,7 +12,7 @@
         /// <summary>
         /// Method Binding Flags
         /// </summary>
-        protected static BindingFlags methodFlags = BindingFlags.Public | BindingFlags.Instance | BindingFlags.InvokeMethod | BindingFlags.DeclaredOnly;
+        protected static readonly BindingFlags methodFlags = BindingFlags.Public | BindingFlags.Instance | BindingFlags.InvokeMethod | BindingFlags.DeclaredOnly;
         #endregion
 
         #region Methods
@@ -46,10 +46,10 @@
         /// <returns>Return Value</returns>
         public virtual object Invoke(string route, object model = null)
         {
-            var t = RouteTable.Routes[route];
-            var obj = Activator.CreateInstance(t.Type);
             var paramaters = null == model ? null : new[] { model };
-            return t.Type.InvokeMember(t.Method, methodFlags, null, obj, paramaters);
+            var entry = RouteTable.Routes[route];
+            var obj = Activator.CreateInstance(entry.Type);
+            return entry.Type.InvokeMember(entry.Method, methodFlags, null, obj, paramaters);
         }
         #endregion
     }

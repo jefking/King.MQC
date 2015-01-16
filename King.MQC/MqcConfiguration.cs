@@ -11,14 +11,14 @@
     {
         #region Members
         /// <summary>
-        /// Queue
+        /// Route To
         /// </summary>
-        protected IRouteTo queue;
+        protected IRouteTo router;
 
         /// <summary>
         /// Method Binding Flags
         /// </summary>
-        protected static BindingFlags methodFlags = BindingFlags.Public | BindingFlags.Instance | BindingFlags.InvokeMethod | BindingFlags.DeclaredOnly;
+        protected static readonly BindingFlags methodFlags = BindingFlags.Public | BindingFlags.Instance | BindingFlags.InvokeMethod | BindingFlags.DeclaredOnly;
         #endregion
 
         #region Properties
@@ -106,12 +106,12 @@
         }
 
         /// <summary>
-        /// Default Queue
+        /// Default Router
         /// </summary>
-        /// <param name="queue">Queue</param>
-        public virtual void DefaultQueue(IRouteTo queue)
+        /// <param name="router">Route To</param>
+        public virtual void DefaultQueue(IRouteTo router)
         {
-            this.queue = queue;
+            this.router = router;
         }
         #endregion
     }

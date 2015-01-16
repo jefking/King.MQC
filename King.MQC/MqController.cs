@@ -12,9 +12,9 @@
     {
         #region Members
         /// <summary>
-        /// Queue
+        /// Route To
         /// </summary>
-        protected readonly IRouteTo queue = null;
+        protected readonly IRouteTo router = null;
         #endregion
 
         #region Constructors
@@ -32,15 +32,15 @@
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="queue">Queue</param>
-        public MqController(IRouteTo queue)
+        /// <param name="router">Route To</param>
+        public MqController(IRouteTo router)
         {
-            if (null == queue)
+            if (null == router)
             {
-                throw new ArgumentNullException("queue");
+                throw new ArgumentNullException("router");
             }
 
-            this.queue = queue;
+            this.router = router;
         }
         #endregion
     }

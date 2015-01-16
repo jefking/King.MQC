@@ -12,6 +12,7 @@
             return data;
         }
 
+        [Route("Blue")]
         public void Set(int id)
         {
             data = id;

@@ -22,9 +22,9 @@
         }
 
         [TestCase("Test/Get", typeof(TestController), "Get")]
-        [TestCase("Test/Set", typeof(TestController), "Set")]
+        [TestCase("Test/Blue", typeof(TestController), "Set")]
         [TestCase("TestNon/Red", typeof(TestNonController), "Get")]
-        [TestCase("TestNon/Blue", typeof(TestNonController), "Set")]
+        [TestCase("TestNon/Set", typeof(TestNonController), "Set")]
         [TestCase("TestBlahBlah/Get", typeof(TestBlahBlah), "Get")]
         [TestCase("TestBlahBlah/Set", typeof(TestBlahBlah), "Set")]
         public void MapMqcAttributeRoutes(string route, Type type, string method)
@@ -47,7 +47,7 @@
         }
 
         [TestCase("Test/Get", typeof(TestController), "Get")]
-        [TestCase("Test/Set", typeof(TestController), "Set")]
+        [TestCase("Test/Blue", typeof(TestController), "Set")]
         [TestCase("TestBlahBlah/Get", typeof(TestBlahBlah), "Get")]
         [TestCase("TestBlahBlah/Set", typeof(TestBlahBlah), "Set")]
         public void GetControllers(string route, Type type, string method)
@@ -74,7 +74,7 @@
         }
 
         [TestCase("TestNon/Red", typeof(TestNonController), "Get")]
-        [TestCase("TestNon/Blue", typeof(TestNonController), "Set")]
+        [TestCase("TestNon/Set", typeof(TestNonController), "Set")]
         public void GetAttributes(string route, Type type, string method)
         {
             var assembly = Assembly.GetAssembly(this.GetType());
@@ -100,9 +100,9 @@
         }
 
         [TestCase("TestNon", "TestNon/Red", typeof(TestNonController), "Get")]
-        [TestCase("TestNon", "TestNon/Blue", typeof(TestNonController), "Set")]
+        [TestCase("TestNon", "TestNon/Set", typeof(TestNonController), "Set")]
         [TestCase("Test", "Test/Get", typeof(TestController), "Get")]
-        [TestCase("Test", "Test/Set", typeof(TestController), "Set")]
+        [TestCase("Test", "Test/Blue", typeof(TestController), "Set")]
         [TestCase("TestBlahBlah", "TestBlahBlah/Get", typeof(TestBlahBlah), "Get")]
         [TestCase("TestBlahBlah", "TestBlahBlah/Set", typeof(TestBlahBlah), "Set")]
         public void GetMethods(string className, string route, Type type, string method)
@@ -118,7 +118,7 @@
         [TestCase(typeof(TestNonController))]
         [TestCase(typeof(TestController))]
         [TestCase(typeof(TestBlahBlah))]
-        public void GetMethods(Type type)
+        public void GetMethodsCount(Type type)
         {
             var config = new MqcConfiguration();
             var routes = config.GetMethods(type, Guid.NewGuid().ToString());

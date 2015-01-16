@@ -32,7 +32,7 @@
             var expected = random.Next();
 
             var queue = new DirectQueue();
-            queue.Send("Test/Set", expected);
+            queue.Send("Test/Blue", expected);
 
             var value = queue.Get<int>("Test/Get");
 
@@ -46,7 +46,7 @@
             var expected = random.Next();
 
             var queue = new DirectQueue();
-            queue.Send("TestNon/Blue", expected);
+            queue.Send("TestNon/Set", expected);
 
             var value = queue.Get<int>("TestNon/Red");
 

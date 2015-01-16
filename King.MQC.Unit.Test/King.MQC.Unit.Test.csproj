@@ -59,6 +59,7 @@
     <Compile Include="DirectQueueTests.cs" />
     <Compile Include="GlobalConfigurationTests.cs" />
     <Compile Include="LocalQueueTests.cs" />
+    <Compile Include="MqcApplicationTests.cs" />
     <Compile Include="MqcConfigurationTests.cs" />
     <Compile Include="MqControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -10,6 +10,16 @@
     /// </remarks>
     public class MqcApplication : IDisposable
     {
+        #region Constructors
+        /// <summary>
+        /// Deconstructor
+        /// </summary>
+        ~MqcApplication()
+        {
+            this.Dispose(false);
+        }
+        #endregion
+
         #region Methods
         /// <summary>
         /// Start
@@ -30,14 +40,19 @@
         /// </summary>
         public void Dispose()
         {
+            this.Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         /// <summary>
         /// Dispose
         /// </summary>
         /// <param name="disposing">Disposing</param>
-        public virtual void Dispose(bool disposing)
+        protected virtual void Dispose(bool disposing)
         {
+            if (disposing)
+            {
+            }
         }
         #endregion
     }

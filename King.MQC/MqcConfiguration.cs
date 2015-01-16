@@ -60,11 +60,8 @@
         public virtual RouteCollection GetControllers(Assembly assembly)
         {
             var routes = new RouteCollection();
-            var controllers = from cls in assembly.GetTypes()
-                              where cls.BaseType == typeof(MqController)
-                              select cls;
 
-            foreach (var type in controllers)
+            foreach (var type in assembly.GetTypes().Where(cls => cls.BaseType == typeof(MqController)))
             {
                 var className = type.Name.EndsWith("Controller") ? type.Name.Replace("Controller", string.Empty) : type.Name;
 

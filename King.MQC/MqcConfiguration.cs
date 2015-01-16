@@ -1,8 +1,8 @@
 ﻿namespace King.MQC
 {
     using System;
-using System.Linq;
-using System.Reflection;
+    using System.Linq;
+    using System.Reflection;
 
     /// <summary>
     /// MQC Configuration

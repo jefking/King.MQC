@@ -98,5 +98,33 @@
             Assert.IsNotNull(routes);
             Assert.AreEqual(2, routes.Count);
         }
+
+        [TestCase("TestNon", "TestNon/Red", typeof(TestNonController), "Get")]
+        [TestCase("TestNon", "TestNon/Blue", typeof(TestNonController), "Set")]
+        [TestCase("Test", "Test/Get", typeof(TestController), "Get")]
+        [TestCase("Test", "Test/Set", typeof(TestController), "Set")]
+        [TestCase("TestBlahBlah", "TestBlahBlah/Get", typeof(TestBlahBlah), "Get")]
+        [TestCase("TestBlahBlah", "TestBlahBlah/Set", typeof(TestBlahBlah), "Set")]
+        public void GetMethods(string className, string route, Type type, string method)
+        {
+            var config = new MqcConfiguration();
+            var routes = config.GetMethods(type, className);
+
+            var routeType = routes[route];
+            Assert.AreEqual(type, routeType.Type);
+            Assert.AreEqual(method, routeType.Method);
+        }
+
+        [TestCase(typeof(TestNonController))]
+        [TestCase(typeof(TestController))]
+        [TestCase(typeof(TestBlahBlah))]
+        public void GetMethods(Type type)
+        {
+            var config = new MqcConfiguration();
+            var routes = config.GetMethods(type, Guid.NewGuid().ToString());
+
+            Assert.IsNotNull(routes);
+            Assert.AreEqual(2, routes.Count);
+        }
     }
 }

@@ -1,7 +1,9 @@
-﻿namespace King.MQC.Unit.Test
+﻿namespace King.MQC.Unit.Test.Routes
 {
-    [Route("TestNon")]
-    public class TestNonController
+    /// <summary>
+    /// Test Controller without Controller in the name
+    /// </summary>
+    public class TestBlahBlah : MqController
     {
         private static volatile int data = 0;
 

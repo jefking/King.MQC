@@ -2,6 +2,7 @@
 {
     using King.MQC.Unit.Test.Routes;
     using NUnit.Framework;
+    using System;
     using System.Reflection;
 
     [TestFixture]
@@ -20,24 +21,48 @@
             Assert.AreEqual(RouteTable.Routes, config.Routes);
         }
 
+        [TestCase("Test/Get", typeof(TestController), "Get")]
+        [TestCase("Test/Set", typeof(TestController), "Set")]
+        [TestCase("TestNon/Red", typeof(TestNonController), "Get")]
+        [TestCase("TestNon/Blue", typeof(TestNonController), "Set")]
+        [TestCase("TestBlahBlah/Get", typeof(TestBlahBlah), "Get")]
+        [TestCase("TestBlahBlah/Set", typeof(TestBlahBlah), "Set")]
+        public void MapMqcAttributeRoutes(string route, Type type, string method)
+        {
+            var config = new MqcConfiguration();
+            config.MapMqcAttributeRoutes();
+
+            Assert.AreEqual(type, config.Routes[route].Type);
+            Assert.AreEqual(method, config.Routes[route].Method);
+        }
+
         [Test]
-        public void MapMqcAttributeRoutes()
+        public void MapMqcAttributeRoutesCount()
         {
             var config = new MqcConfiguration();
             config.MapMqcAttributeRoutes();
 
             Assert.IsNotNull(config.Routes);
             Assert.AreEqual(6, config.Routes.Count);
-            Assert.AreEqual(typeof(TestController), config.Routes["Test/Get"]);
-            Assert.AreEqual(typeof(TestController), config.Routes["Test/Set"]);
-            Assert.AreEqual(typeof(TestNonController), config.Routes["TestNon/Get"]);
-            Assert.AreEqual(typeof(TestNonController), config.Routes["TestNon/Set"]);
-            Assert.AreEqual(typeof(TestBlahBlah), config.Routes["TestBlahBlah/Get"]);
-            Assert.AreEqual(typeof(TestBlahBlah), config.Routes["TestBlahBlah/Set"]);
+        }
+
+        [TestCase("Test/Get", typeof(TestController), "Get")]
+        [TestCase("Test/Set", typeof(TestController), "Set")]
+        [TestCase("TestBlahBlah/Get", typeof(TestBlahBlah), "Get")]
+        [TestCase("TestBlahBlah/Set", typeof(TestBlahBlah), "Set")]
+        public void GetControllers(string route, Type type, string method)
+        {
+            var assembly = Assembly.GetAssembly(this.GetType());
+
+            var config = new MqcConfiguration();
+            var routes = config.GetControllers(assembly);
+
+            Assert.AreEqual(type, config.Routes[route].Type);
+            Assert.AreEqual(method, config.Routes[route].Method);
         }
 
         [Test]
-        public void GetControllers()
+        public void GetControllersCount()
         {
             var assembly = Assembly.GetAssembly(this.GetType());
 
@@ -46,14 +71,24 @@
 
             Assert.IsNotNull(routes);
             Assert.AreEqual(4, routes.Count);
-            Assert.AreEqual(typeof(TestController), routes["Test/Get"]);
-            Assert.AreEqual(typeof(TestController), routes["Test/Set"]);
-            Assert.AreEqual(typeof(TestBlahBlah), config.Routes["TestBlahBlah/Get"]);
-            Assert.AreEqual(typeof(TestBlahBlah), config.Routes["TestBlahBlah/Set"]);
+        }
+
+        [TestCase("TestNon/Red", typeof(TestNonController), "Get")]
+        [TestCase("TestNon/Blue", typeof(TestNonController), "Set")]
+        public void GetAttributes(string route, Type type, string method)
+        {
+            var assembly = Assembly.GetAssembly(this.GetType());
+
+            var config = new MqcConfiguration();
+            var routes = config.GetAttributes(assembly);
+
+            var routeType = routes[route];
+            Assert.AreEqual(type, routeType.Type);
+            Assert.AreEqual(method, routeType.Method);
         }
 
         [Test]
-        public void GetAttributes()
+        public void GetAttributesCount()
         {
             var assembly = Assembly.GetAssembly(this.GetType());
 
@@ -62,8 +97,6 @@
 
             Assert.IsNotNull(routes);
             Assert.AreEqual(2, routes.Count);
-            Assert.AreEqual(typeof(TestNonController), routes["TestNon/Get"]);
-            Assert.AreEqual(typeof(TestNonController), routes["TestNon/Set"]);
         }
     }
 }

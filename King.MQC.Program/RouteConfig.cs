@@ -5,7 +5,7 @@
 
     public class RouteConfig
     {
-        public static void RegisterRoutes(IDictionary<string, Type> routes)
+        public static void RegisterRoutes(IDictionary<string, RouteType> routes)
         {
         }
     }

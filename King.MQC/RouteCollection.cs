@@ -7,18 +7,25 @@
     /// <summary>
     /// Collection or Route Data
     /// </summary>
-    public class RouteCollection : SortedDictionary<string, Type>
+    public class RouteCollection : SortedDictionary<string, RouteType>
     {
         #region Methods
         /// <summary>
         /// Add Route
         /// </summary>
         /// <param name="className">Class Name</param>
-        /// <param name="methodName">Method Name</param>
+        /// <param name="alias"></param>
         /// <param name="type">Type</param>
-        public void Add(string className, string methodName, Type type)
+        /// <param name="methodName">Method Name</param>
+        public void Add(string className, string alias, Type type, string methodName = null)
         {
-            this.Add(string.Format("{0}/{1}", className, methodName), type);
+            var route = new RouteType
+            {
+                Type = type,
+                Method = methodName ?? alias,
+            };
+
+            this.Add(string.Format("{0}/{1}", className, alias), route);
         }
 
         /// <summary>

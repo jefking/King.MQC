@@ -8,11 +8,13 @@
     {
         private static volatile int data = 0;
 
+        [Route("Red")]
         public int Get()
         {
             return data;
         }
 
+        [Route("Blue")]
         public void Set(int id)
         {
             data = id;

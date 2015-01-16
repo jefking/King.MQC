@@ -1,7 +1,8 @@
 ﻿namespace King.MQC
 {
-    using System.Linq;
-    using System.Reflection;
+    using System;
+using System.Linq;
+using System.Reflection;
 
     /// <summary>
     /// MQC Configuration
@@ -57,11 +58,7 @@
             foreach (var type in assembly.GetTypes().Where(cls => cls.BaseType == typeof(MqController)))
             {
                 var className = type.Name.EndsWith("Controller") ? type.Name.Replace("Controller", string.Empty) : type.Name;
-
-                foreach (var methodName in type.GetMembers(methodFlags).Where(m => m.MemberType != MemberTypes.Constructor).Select(m => m.Name))
-                {
-                    routes.Add(className, methodName, type);
-                }
+                routes.Merge(this.GetMethods(type, className));
             }
 
             return routes;
@@ -81,11 +78,28 @@
                 var attribute = type.GetCustomAttribute<RouteAttribute>(false);
                 if (null != attribute)
                 {
-                    foreach (var methodName in type.GetMembers(methodFlags).Where(m => m.MemberType != MemberTypes.Constructor).Select(m => m.Name))
-                    {
-                        routes.Add(attribute.Name, methodName, type);
-                    }
+                    routes.Merge(this.GetMethods(type, attribute.Name));
                 }
+            }
+
+            return routes;
+        }
+
+        /// <summary>
+        /// Get Methods
+        /// </summary>
+        /// <param name="type">Type</param>
+        /// <param name="className">Class Name</param>
+        /// <returns>Routable Methods</returns>
+        public virtual RouteCollection GetMethods(Type type, string className)
+        {
+            var routes = new RouteCollection();
+
+            foreach (var method in type.GetMembers(methodFlags).Where(m => m.MemberType != MemberTypes.Constructor))
+            {
+                var attribute = method.GetCustomAttribute<RouteAttribute>(false);
+                var alias = null == attribute ? method.Name : attribute.Name;
+                routes.Add(className, alias, type, method.Name);
             }
 
             return routes;

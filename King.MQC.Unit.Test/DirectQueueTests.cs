@@ -46,9 +46,9 @@
             var expected = random.Next();
 
             var queue = new DirectQueue();
-            queue.Send("TestNon/Set", expected);
+            queue.Send("TestNon/Blue", expected);
 
-            var value = queue.Get<int>("TestNon/Get");
+            var value = queue.Get<int>("TestNon/Red");
 
             Assert.AreEqual(expected, value);
         }

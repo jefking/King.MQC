@@ -58,6 +58,7 @@
     <Compile Include="RouteAttribute.cs" />
     <Compile Include="RouteCollection.cs" />
     <Compile Include="RouteTable.cs" />
+    <Compile Include="RouteType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

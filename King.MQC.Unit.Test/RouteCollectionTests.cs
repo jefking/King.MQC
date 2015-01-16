@@ -16,7 +16,7 @@
         [Test]
         public void IsSortedDictionary()
         {
-            Assert.IsNotNull(new RouteCollection() as SortedDictionary<string, Type>);
+            Assert.IsNotNull(new RouteCollection() as SortedDictionary<string, RouteType>);
         }
 
         [Test]
@@ -31,7 +31,8 @@
 
             var key = string.Format("{0}/{1}", className, methodName);
             Assert.IsNotNull(routes[key]);
-            Assert.AreEqual(routes[key], type);
+            Assert.AreEqual(routes[key].Type, type);
+            Assert.AreEqual(routes[key].Method, methodName);
         }
     }
 }

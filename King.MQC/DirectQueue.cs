@@ -21,7 +21,7 @@
         /// </summary>
         /// <param name="route">Route</param>
         /// <param name="model">Model</param>
-        public virtual void Send(string route, object model)
+        public virtual void Send(string route, object model = null)
         {
             var t = RouteTable.Routes[route];
             var methodName = route.Substring(route.LastIndexOf('/') + 1);

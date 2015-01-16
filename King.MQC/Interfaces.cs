@@ -12,7 +12,7 @@
         /// </summary>
         /// <param name="route">Route</param>
         /// <param name="model">Model</param>
-        void Send(string route, object model);
+        void Send(string route, object model = null);
 
         /// <summary>
         /// Get Data

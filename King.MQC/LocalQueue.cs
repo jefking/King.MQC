@@ -22,7 +22,7 @@
         /// </summary>
         /// <param name="route">Route</param>
         /// <param name="model">Model</param>
-        public virtual void Send(string route, object model)
+        public virtual void Send(string route, object model = null)
         {
             if (!data.ContainsKey(route))
             {

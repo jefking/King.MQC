@@ -2,6 +2,7 @@
 {
     using Newtonsoft.Json;
     using System.Collections.Generic;
+    using System.Linq;
 
     /// <summary>
     /// In application queuing
@@ -29,7 +30,8 @@
                 this.data.Add(route, new Stack<string>());
             }
 
-            this.data[route].Push(JsonConvert.SerializeObject(model));
+            var serialized = null == model ? (string)null : JsonConvert.SerializeObject(model);
+            this.data[route].Push(serialized);
         }
 
         /// <summary>
@@ -41,7 +43,22 @@
         /// <returns>Data</returns>
         public virtual T Get<T>(string route, object model = null)
         {
-            return this.data.ContainsKey(route) ? JsonConvert.DeserializeObject<T>(this.data[route].Pop()) : default(T);
+            if (!data.ContainsKey(route))
+            {
+                this.data.Add(route, new Stack<string>());
+            }
+
+            var value = default(T);
+            if (this.data.ContainsKey(route) && this.data[route].Any())
+            {
+                var inQueue = this.data[route].Pop();
+                if (!string.IsNullOrWhiteSpace(inQueue))
+                {
+                    value = JsonConvert.DeserializeObject<T>(inQueue);
+                }
+            }
+
+            return value;
         }
         #endregion
     }

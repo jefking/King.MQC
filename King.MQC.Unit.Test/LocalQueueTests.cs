@@ -49,5 +49,18 @@
             var queue = new LocalQueue();
             queue.Get<object>(Guid.NewGuid().ToString(), new object());
         }
+
+        [Test]
+        public void GetData()
+        {
+            var data = Guid.NewGuid();
+            var route = Guid.NewGuid().ToString();
+
+            var queue = new LocalQueue();
+            queue.Send(route, data);
+            var value = queue.Get<Guid>(route);
+
+            Assert.AreEqual(data, value);
+        }
     }
 }

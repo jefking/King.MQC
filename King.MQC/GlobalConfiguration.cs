@@ -17,7 +17,10 @@
         /// <param name="configurationCallback">Configuration Callback</param>
         public static void Configure(Action<MqcConfiguration> configurationCallback)
         {
-            //Call Registration
+            if (null != configurationCallback)
+            {
+                //Call Registration
+            }
         }
         #endregion
     }

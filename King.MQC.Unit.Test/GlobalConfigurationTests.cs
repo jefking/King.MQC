@@ -11,5 +11,10 @@
     [TestFixture]
     public class GlobalConfigurationTests
     {
+        [Test]
+        public void Configure()
+        {
+            GlobalConfiguration.Configure(null);
+        }
     }
 }

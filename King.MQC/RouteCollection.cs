@@ -8,5 +8,10 @@
     /// </summary>
     public class RouteCollection : SortedDictionary<string, Type>
     {
+        public void Add(string className, string methodName, Type type)
+        {
+            var route = string.Format("{0}/{1}", className, methodName);
+            this.Add(route, type);
+        }
     }
 }

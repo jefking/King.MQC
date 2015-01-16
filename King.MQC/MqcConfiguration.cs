@@ -41,20 +41,14 @@
         {
             var assembly = Assembly.GetCallingAssembly();
 
-            foreach (var route in this.GetControllers(assembly))
+            foreach (var route in this.GetControllers(assembly).Where(r => !this.Routes.ContainsKey(r.Key)))
             {
-                if (!this.Routes.ContainsKey(route.Key))
-                {
-                    this.Routes.Add(route.Key, route.Value);
-                }
+                this.Routes.Add(route.Key, route.Value);
             }
 
-            foreach (var route in this.GetAttributes(assembly))
+            foreach (var route in this.GetAttributes(assembly).Where(r => !this.Routes.ContainsKey(r.Key)))
             {
-                if (!this.Routes.ContainsKey(route.Key))
-                {
-                    this.Routes.Add(route.Key, route.Value);
-                }
+                this.Routes.Add(route.Key, route.Value);
             }
         }
 
@@ -72,17 +66,11 @@
 
             foreach (var type in controllers)
             {
-                var classRoute = type.Name.EndsWith("Controller") ? type.Name.Replace("Controller", string.Empty) : type.Name;
+                var className = type.Name.EndsWith("Controller") ? type.Name.Replace("Controller", string.Empty) : type.Name;
 
-                var methods = from meth in type.GetMembers(methodFlags)
-                              where meth.MemberType != MemberTypes.Constructor
-                              select meth.Name;
-
-                foreach (var method in methods)
+                foreach (var methodName in type.GetMembers(methodFlags).Where(m => m.MemberType != MemberTypes.Constructor).Select(m => m.Name))
                 {
-                    var route = string.Format("{0}/{1}", classRoute, method);
-
-                    routes.Add(route, type);
+                    routes.Add(className, methodName, type);
                 }
             }
 
@@ -103,17 +91,9 @@
                 var attribute = type.GetCustomAttribute<RouteAttribute>(false);
                 if (null != attribute)
                 {
-                    var classRoute = attribute.Name;
-
-                    var methods = from meth in type.GetMembers(methodFlags)
-                                  where meth.MemberType != MemberTypes.Constructor
-                                  select meth.Name;
-
-                    foreach (var method in methods)
+                    foreach (var methodName in type.GetMembers(methodFlags).Where(m => m.MemberType != MemberTypes.Constructor).Select(m => m.Name))
                     {
-                        var route = string.Format("{0}/{1}", classRoute, method);
-
-                        routes.Add(route, type);
+                        routes.Add(attribute.Name, methodName, type);
                     }
                 }
             }

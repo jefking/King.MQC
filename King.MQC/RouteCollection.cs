@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     /// <summary>
     /// Collection or Route Data
@@ -17,8 +18,22 @@
         /// <param name="type">Type</param>
         public void Add(string className, string methodName, Type type)
         {
-            var route = string.Format("{0}/{1}", className, methodName);
-            this.Add(route, type);
+            this.Add(string.Format("{0}/{1}", className, methodName), type);
+        }
+
+        /// <summary>
+        /// Merge Collections
+        /// </summary>
+        /// <param name="collection">Collection</param>
+        public virtual void Merge(RouteCollection collection)
+        {
+            if (null != collection)
+            {
+                foreach (var route in collection.Where(r => !this.ContainsKey(r.Key)))
+                {
+                    this.Add(route.Key, route.Value);
+                }
+            }
         }
         #endregion
     }

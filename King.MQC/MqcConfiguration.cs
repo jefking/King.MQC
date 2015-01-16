@@ -41,15 +41,8 @@
         {
             var assembly = Assembly.GetCallingAssembly();
 
-            foreach (var route in this.GetControllers(assembly).Where(r => !this.Routes.ContainsKey(r.Key)))
-            {
-                this.Routes.Add(route.Key, route.Value);
-            }
-
-            foreach (var route in this.GetAttributes(assembly).Where(r => !this.Routes.ContainsKey(r.Key)))
-            {
-                this.Routes.Add(route.Key, route.Value);
-            }
+            this.Routes.Merge(this.GetControllers(assembly));
+            this.Routes.Merge(this.GetAttributes(assembly));
         }
 
         /// <summary>

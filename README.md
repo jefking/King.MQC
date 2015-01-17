@@ -15,15 +15,18 @@ To: web call -> web api -> queue -> dal -> queue -> storage
 
 ### Benefits
 - High entropy, many smaller parts
-- model based throughout system
-- each controller is a unit of scale
-- web api style
-- 1 mockable class: Get/Put, url + data
-- makes testing really nice, as you dont have to worry about mocking and dependancies as much
-- you don't inject classes that are dependancies
-- queues could go in place of each layer
-- each place failure is handled, and retry is handled
 - multiple language support; route between languages
+- Models
+-- Code MVC style
+-- Model based throughout system, not just first layer
+- Scalability
+-- queues could go in place of each layer
+-- each controller method becomes scalable
+-- each place failure is handled, and retry is handled
+- Testing
+-- 1 mockable class: Get/Put, url + data
+-- makes testing really nice, as you dont have to worry about mocking and dependancies as much
+-- you don't inject classes that are dependancies
 
 ### TODO/Ideas
 Controllers

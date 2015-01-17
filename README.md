@@ -9,8 +9,9 @@ ALPHA
 ## Notes
 
 ### Goals
-web call -> web api -> dal -> storage
-web call -> web api -> queue -> dal (web api) -> queue -> storage
+From: web call -> web api -> dal -> storage
+
+To: web call -> web api -> queue -> dal (web api) -> queue -> storage
 
 ### Benefits
 - High entropy, many smaller parts

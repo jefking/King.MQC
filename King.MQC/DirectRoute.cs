@@ -46,8 +46,17 @@
         /// <returns>Return Value</returns>
         public virtual object Invoke(string route, object model = null)
         {
-            var paramaters = null == model ? null : new[] { model };
+            if (string.IsNullOrWhiteSpace(route))
+            {
+                throw new InvalidOperationException("Route is empty, ensure caller is specifying a route.");
+            }
+            if (!RouteTable.Routes.ContainsKey(route))
+            {
+                throw new InvalidOperationException(string.Format("Unknown route: '{0}.", route));
+            }
+
             var entry = RouteTable.Routes[route];
+            var paramaters = null == model ? null : new[] { model };
             var obj = Activator.CreateInstance(entry.Type);
             return entry.Type.InvokeMember(entry.Method, methodFlags, null, obj, paramaters);
         }

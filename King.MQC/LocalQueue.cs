@@ -3,6 +3,7 @@
     using Newtonsoft.Json;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading;
 
     /// <summary>
     /// In application queuing
@@ -56,6 +57,8 @@
 
             var serialized = null == model ? (string)null : JsonConvert.SerializeObject(model);
             this.data[route].Push(serialized);
+
+            ThreadPool.QueueUserWorkItem(_ => Dequeue());
         }
 
         /// <summary>
@@ -71,7 +74,7 @@
         }
 
         /// <summary>
-        /// 
+        /// Dequeue
         /// </summary>
         protected virtual void Dequeue()
         {

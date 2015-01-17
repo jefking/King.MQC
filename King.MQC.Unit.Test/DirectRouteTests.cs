@@ -4,7 +4,7 @@
     using System;
 
     [TestFixture]
-    public class DirectQueueTests
+    public class DirectRouteTests
     {
         [SetUp]
         public void Setup()

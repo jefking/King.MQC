@@ -1,16 +1,19 @@
 ﻿namespace King.MQC.Unit.Test
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using NUnit.Framework;
     using NSubstitute;
+    using NUnit.Framework;
+    using System;
 
     [TestFixture]
     public class LocalQueueTests
     {
+        [SetUp]
+        public void Setup()
+        {
+            var config = new MqcConfiguration();
+            config.MapMqcAttributeRoutes();
+        }
+
         [Test]
         public void Constructor()
         {
@@ -35,6 +38,21 @@
         {
             var queue = new LocalQueue();
             queue.Send(Guid.NewGuid().ToString(), new object());
+        }
+
+        [Test]
+        [Category("Integration")]
+        public void RoundTrip()
+        {
+            var random = new Random();
+            var expected = random.Next();
+
+            var queue = new LocalQueue();
+            queue.Send("TestBlahBlah/Set", expected);
+
+            var value = queue.Get<int>("TestBlahBlah/Get");
+
+            Assert.AreEqual(expected, value);
         }
 
         [Test]

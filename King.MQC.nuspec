@@ -12,10 +12,10 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Model Queue Controller</description>
     <summary>Model Queue Controller</summary>
-    <releaseNotes>ALPHA: Pre-release; routing and 100% test coverage.</releaseNotes>
+    <releaseNotes>ALPHA; routing and 100% test coverage.</releaseNotes>
     <copyright>Jef King</copyright>
     <language>en-US</language>
-    <tags>Model Queue Controller MQC</tags>
+    <tags>Model Queue Controller MQC Route Routing Router fault-tolerance queuing dequeue dequeuing resiliant scalable throughput</tags>
     <dependencies>
       <dependency id="Newtonsoft.Json" />
     </dependencies>

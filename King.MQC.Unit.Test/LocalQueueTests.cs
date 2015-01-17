@@ -3,6 +3,7 @@
     using NSubstitute;
     using NUnit.Framework;
     using System;
+    using System.Threading;
 
     [TestFixture]
     public class LocalQueueTests

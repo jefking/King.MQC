@@ -26,6 +26,22 @@
         }
 
         [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void InvokeRouteNull()
+        {
+            var queue = new DirectRoute();
+            queue.Invoke(null);
+        }
+
+        [Test]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void InvokeRouteUnknown()
+        {
+            var queue = new DirectRoute();
+            queue.Invoke(Guid.NewGuid().ToString());
+        }
+
+        [Test]
         public void TestRoundTrip()
         {
             var random = new Random();

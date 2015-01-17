@@ -11,7 +11,7 @@ ALPHA
 ### Goals
 From: web call -> web api -> dal -> storage
 
-To: web call -> web api -> queue -> dal (web api) -> queue -> storage
+To: web call -> web api -> queue -> dal -> queue -> storage
 
 ### Benefits
 - High entropy, many smaller parts
@@ -23,8 +23,6 @@ To: web call -> web api -> queue -> dal (web api) -> queue -> storage
 - you don't inject classes that are dependancies
 - queues could go in place of each layer
 - each place failure is handled, and retry is handled
-
-### Future
 - multiple language support; route between languages
 
 ### TODO/Ideas

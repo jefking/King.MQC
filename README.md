@@ -28,10 +28,11 @@ To: web call -> web api -> queue -> dal -> queue -> storage
  + makes testing really nice, as you dont have to worry about mocking and dependancies as much
  + you don't inject classes that are dependancies
 
-### TODO/Ideas
+### Ideas
 Controllers
 + Stateful? Should be able to load just one and keep using it? Cache
 + Retry for queue/dequeue etc
++ Call type per route
 
 Calling
 + Thread models, single threaded, eventing, etc.

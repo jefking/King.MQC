@@ -23,11 +23,11 @@
         }
 
         [TestCase("Test/Get", typeof(TestController), "Get")]
-        [TestCase("Test/Blue", typeof(TestController), "Set")]
+        [TestCase("Test/Set", typeof(TestController), "Set")]
         [TestCase("TestNon/Red", typeof(TestNonController), "Get")]
         [TestCase("TestNon/Set", typeof(TestNonController), "Set")]
         [TestCase("TestBlahBlah/Get", typeof(TestBlahBlah), "Get")]
-        [TestCase("TestBlahBlah/Set", typeof(TestBlahBlah), "Set")]
+        [TestCase("TestBlahBlah/Blue", typeof(TestBlahBlah), "Set")]
         public void MapMqcAttributeRoutes(string route, Type type, string method)
         {
             var config = new MqcConfiguration();
@@ -48,9 +48,9 @@
         }
 
         [TestCase("Test/Get", typeof(TestController), "Get")]
-        [TestCase("Test/Blue", typeof(TestController), "Set")]
+        [TestCase("Test/Set", typeof(TestController), "Set")]
         [TestCase("TestBlahBlah/Get", typeof(TestBlahBlah), "Get")]
-        [TestCase("TestBlahBlah/Set", typeof(TestBlahBlah), "Set")]
+        [TestCase("TestBlahBlah/Blue", typeof(TestBlahBlah), "Set")]
         public void GetControllers(string route, Type type, string method)
         {
             var assembly = Assembly.GetAssembly(this.GetType());
@@ -103,9 +103,9 @@
         [TestCase("TestNon", "TestNon/Red", typeof(TestNonController), "Get")]
         [TestCase("TestNon", "TestNon/Set", typeof(TestNonController), "Set")]
         [TestCase("Test", "Test/Get", typeof(TestController), "Get")]
-        [TestCase("Test", "Test/Blue", typeof(TestController), "Set")]
+        [TestCase("Test", "Test/Set", typeof(TestController), "Set")]
         [TestCase("TestBlahBlah", "TestBlahBlah/Get", typeof(TestBlahBlah), "Get")]
-        [TestCase("TestBlahBlah", "TestBlahBlah/Set", typeof(TestBlahBlah), "Set")]
+        [TestCase("TestBlahBlah", "TestBlahBlah/Blue", typeof(TestBlahBlah), "Set")]
         public void GetMethods(string className, string route, Type type, string method)
         {
             var config = new MqcConfiguration();

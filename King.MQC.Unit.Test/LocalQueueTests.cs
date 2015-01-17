@@ -49,9 +49,9 @@
             var expected = random.Next();
 
             var queue = new LocalQueue();
-            queue.Send("TestBlahBlah/Set", expected);
+            queue.Send("Test/Set", expected);
 
-            var value = queue.Get<int>("TestBlahBlah/Get");
+            var value = queue.Get<int>("Test/Get");
 
             Assert.AreEqual(expected, value);
         }

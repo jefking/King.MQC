@@ -48,7 +48,7 @@
             var expected = random.Next();
 
             var queue = new DirectRoute();
-            queue.Send("Test/Blue", expected);
+            queue.Send("Test/Set", expected);
 
             var value = queue.Get<int>("Test/Get");
 

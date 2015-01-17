@@ -15,6 +15,30 @@
         /// Stack:String; data in Json
         /// </summary>
         protected readonly IDictionary<string, Stack<string>> data = new Dictionary<string, Stack<string>>();
+
+        /// <summary>
+        /// Direct Route to
+        /// </summary>
+        protected readonly IRouteTo direct = null;
+        #endregion
+
+        #region Constructors
+        /// <summary>
+        /// 
+        /// </summary>
+        public LocalQueue()
+            : this(new DirectRoute())
+        {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="direct"></param>
+        public LocalQueue(IRouteTo direct)
+        {
+            this.direct = direct;
+        }
         #endregion
 
         #region Methods
@@ -43,22 +67,22 @@
         /// <returns>Data</returns>
         public virtual T Get<T>(string route, object model = null)
         {
-            if (!data.ContainsKey(route))
-            {
-                this.data.Add(route, new Stack<string>());
-            }
+            return this.direct.Get<T>(route, model);
+        }
 
-            var value = default(T);
-            if (this.data.ContainsKey(route) && this.data[route].Any())
+        /// <summary>
+        /// 
+        /// </summary>
+        protected virtual void Dequeue()
+        {
+            foreach (var key in this.data.Keys)
             {
-                var inQueue = this.data[route].Pop();
-                if (!string.IsNullOrWhiteSpace(inQueue))
+                var d = this.data[key].Pop();
+                if (null != d)
                 {
-                    value = JsonConvert.DeserializeObject<T>(inQueue);
+                    this.direct.Send(key, d);
                 }
             }
-
-            return value;
         }
         #endregion
     }

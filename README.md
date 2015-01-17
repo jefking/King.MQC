@@ -9,7 +9,7 @@ ALPHA
 
 ## Notes
 
-### Goal
+### Goals
 web call -> web api -> dal -> storage
 web call -> web api -> queue -> dal (web api) -> queue -> storage
 

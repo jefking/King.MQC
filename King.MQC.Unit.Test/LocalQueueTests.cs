@@ -6,6 +6,7 @@
     using System.Text;
     using System.Threading.Tasks;
     using NUnit.Framework;
+    using NSubstitute;
 
     [TestFixture]
     public class LocalQueueTests
@@ -39,28 +40,34 @@
         [Test]
         public void Get()
         {
-            var queue = new LocalQueue();
-            queue.Get<object>(Guid.NewGuid().ToString());
+            var data = Guid.NewGuid();
+            var route = Guid.NewGuid().ToString();
+            var direct = Substitute.For<IRouteTo>();
+            direct.Get<Guid>(route, null).Returns(data);
+
+            var queue = new LocalQueue(direct);
+            queue.Send(route, data);
+            var value = queue.Get<Guid>(route);
+
+            Assert.AreEqual(data, value);
+            direct.Received().Get<Guid>(route, null);
         }
 
         [Test]
         public void GetWithModel()
         {
-            var queue = new LocalQueue();
-            queue.Get<object>(Guid.NewGuid().ToString(), new object());
-        }
-
-        [Test]
-        public void GetData()
-        {
             var data = Guid.NewGuid();
             var route = Guid.NewGuid().ToString();
+            var model = new object();
+            var direct = Substitute.For<IRouteTo>();
+            direct.Get<Guid>(route, model).Returns(data);
 
-            var queue = new LocalQueue();
+            var queue = new LocalQueue(direct);
             queue.Send(route, data);
-            var value = queue.Get<Guid>(route);
+            var value = queue.Get<Guid>(route, model);
 
             Assert.AreEqual(data, value);
+            direct.Received().Get<Guid>(route, model);
         }
     }
 }

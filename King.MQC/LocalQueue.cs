@@ -15,7 +15,7 @@
         /// Key:String; Route
         /// Stack:String; data in Json
         /// </summary>
-        protected readonly IDictionary<string, Stack<string>> data = new Dictionary<string, Stack<string>>();
+        protected readonly IDictionary<string, Stack<object>> data = new Dictionary<string, Stack<object>>();
 
         /// <summary>
         /// Direct Route to
@@ -52,13 +52,12 @@
         {
             if (!data.ContainsKey(route))
             {
-                this.data.Add(route, new Stack<string>());
+                this.data.Add(route, new Stack<object>());
             }
 
-            var serialized = null == model ? (string)null : JsonConvert.SerializeObject(model);
-            this.data[route].Push(serialized);
+            this.data[route].Push(model);
 
-            ThreadPool.QueueUserWorkItem(_ => Dequeue());
+            ThreadPool.QueueUserWorkItem(_ => Dequeue()); //Dequeue on background thread.
         }
 
         /// <summary>

@@ -1,7 +1,6 @@
 ALPHA
 ========
 
-## Current
 - Routing setup (Controller Classes)
 - Call methods via routing
 - NuGet: Install-Package King.MQC

@@ -1,5 +1,7 @@
 ﻿namespace King.MQC.Unit.Test.Routes
 {
+    using King.MQC.Routing;
+
     /// <summary>
     /// Test Controller without Controller in the name
     /// </summary>
@@ -12,7 +14,7 @@
             return data;
         }
 
-        [Route("Blue")]
+        [RouteAlias("Blue")]
         public void Set(int id)
         {
             data = id;

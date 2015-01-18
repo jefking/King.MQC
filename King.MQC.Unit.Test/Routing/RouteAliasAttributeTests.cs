@@ -1,5 +1,6 @@
 ﻿namespace King.MQC.Unit.Test
 {
+    using King.MQC.Routing;
     using NUnit.Framework;
     using System;
 
@@ -9,14 +10,14 @@
         [Test]
         public void Constructor()
         {
-            new RouteAttribute(Guid.NewGuid().ToString());
+            new RouteAliasAttribute(Guid.NewGuid().ToString());
         }
 
         [Test]
         [ExpectedException(typeof(ArgumentException))]
         public void ConstructorNameNull()
         {
-            new RouteAttribute(null);
+            new RouteAliasAttribute(null);
         }
 
         [Test]
@@ -24,7 +25,7 @@
         {
             var expected = Guid.NewGuid().ToString();
             
-            var ra = new RouteAttribute(expected);
+            var ra = new RouteAliasAttribute(expected);
 
             Assert.AreEqual(expected, ra.Name);
         }

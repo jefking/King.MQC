@@ -1,5 +1,6 @@
 ﻿namespace King.MQC
 {
+    using King.MQC.Routing;
     using System;
     using System.Reflection;
 

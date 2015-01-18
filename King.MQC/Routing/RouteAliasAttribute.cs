@@ -1,4 +1,4 @@
-﻿namespace King.MQC
+﻿namespace King.MQC.Routing
 {
     using System;
 
@@ -6,7 +6,7 @@
     /// Attribute based routing
     /// </summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true, Inherited = true)]
-    public class RouteAttribute : Attribute
+    public class RouteAliasAttribute : Attribute
     {
         #region Members
         /// <summary>
@@ -20,7 +20,7 @@
         /// Constructor
         /// </summary>
         /// <param name="name">Route Name</param>
-        public RouteAttribute(string name)
+        public RouteAliasAttribute(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
             {

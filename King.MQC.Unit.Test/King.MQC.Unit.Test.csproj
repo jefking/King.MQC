@@ -64,11 +64,11 @@
     <Compile Include="MqcConfigurationTests.cs" />
     <Compile Include="MqControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RouteAttributeTests.cs" />
-    <Compile Include="RouteCollectionTests.cs" />
-    <Compile Include="RouteEntryTests.cs" />
+    <Compile Include="Routing\RouteAliasAttributeTests.cs" />
+    <Compile Include="Routing\RouteCollectionTests.cs" />
+    <Compile Include="Routing\RouteEntryTests.cs" />
     <Compile Include="Routes\TestBlahBlah.cs" />
-    <Compile Include="RouteTableTests.cs" />
+    <Compile Include="Routing\RouteTableTests.cs" />
     <Compile Include="Routes\TestController.cs" />
     <Compile Include="Routes\TestNonController.cs" />
   </ItemGroup>
@@ -81,6 +81,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

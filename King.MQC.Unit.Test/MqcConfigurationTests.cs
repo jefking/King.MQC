@@ -1,5 +1,6 @@
 ﻿namespace King.MQC.Unit.Test
 {
+    using King.MQC.Routing;
     using King.MQC.Unit.Test.Routes;
     using NSubstitute;
     using NUnit.Framework;

@@ -1,4 +1,4 @@
-﻿namespace King.MQC
+﻿namespace King.MQC.Routing
 {
     /// <summary>
     /// Route Table

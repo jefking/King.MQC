@@ -1,14 +1,16 @@
 ﻿namespace King.MQC.Unit.Test.Routes
 {
+    using King.MQC.Routing;
+
     /// <summary>
     /// Attribute based Controller
     /// </summary>
-    [Route("TestNon")]
+    [RouteAlias("TestNon")]
     public class TestNonController
     {
         private static volatile int data = 0;
 
-        [Route("Red")]
+        [RouteAlias("Red")]
         public int Get()
         {
             return data;

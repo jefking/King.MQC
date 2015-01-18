@@ -1,5 +1,6 @@
 ﻿namespace King.MQC
 {
+    using King.MQC.Routing;
     using System;
     using System.Linq;
     using System.Reflection;
@@ -84,7 +85,7 @@
 
             foreach (var type in assembly.GetTypes())
             {
-                var attribute = type.GetCustomAttribute<RouteAttribute>(false);
+                var attribute = type.GetCustomAttribute<RouteAliasAttribute>(false);
                 if (null != attribute)
                 {
                     routes.Merge(this.GetMethods(type, attribute.Name));
@@ -106,7 +107,7 @@
 
             foreach (var method in type.GetMembers(methodFlags).Where(m => m.MemberType != MemberTypes.Constructor))
             {
-                var attribute = method.GetCustomAttribute<RouteAttribute>(false);
+                var attribute = method.GetCustomAttribute<RouteAliasAttribute>(false);
                 var alias = null == attribute ? method.Name : attribute.Name;
                 routes.Add(className, alias, type, method.Name);
             }

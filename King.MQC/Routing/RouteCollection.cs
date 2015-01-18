@@ -1,4 +1,4 @@
-﻿namespace King.MQC
+﻿namespace King.MQC.Routing
 {
     using System;
     using System.Collections.Generic;

@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "King.MQC.Program", "King.MQ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "King.MQC.Unit.Test", "King.MQC.Unit.Test\King.MQC.Unit.Test.csproj", "{78A3FD32-C7A4-45B7-8FCF-7DFBBEB99E84}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "King.MQC.MVC", "King.MQC.MVC\King.MQC.MVC.csproj", "{290C127F-9311-4E06-8912-7034C89FF53A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{78A3FD32-C7A4-45B7-8FCF-7DFBBEB99E84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78A3FD32-C7A4-45B7-8FCF-7DFBBEB99E84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78A3FD32-C7A4-45B7-8FCF-7DFBBEB99E84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{290C127F-9311-4E06-8912-7034C89FF53A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{290C127F-9311-4E06-8912-7034C89FF53A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{290C127F-9311-4E06-8912-7034C89FF53A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{290C127F-9311-4E06-8912-7034C89FF53A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -38,5 +44,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{426B829C-15AF-43A4-81AF-EDD40481EDC1} = {58CFB248-C3B4-4141-8335-0726A73B1991}
 		{78A3FD32-C7A4-45B7-8FCF-7DFBBEB99E84} = {17EA4D6F-B4F8-4F3C-8DAC-2E29A6DEDB4A}
+		{290C127F-9311-4E06-8912-7034C89FF53A} = {58CFB248-C3B4-4141-8335-0726A73B1991}
 	EndGlobalSection
 EndGlobal

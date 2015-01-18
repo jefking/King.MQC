@@ -5,9 +5,6 @@
     /// <summary>
     /// Model Queue Controller
     /// </summary>
-    /// <remarks>
-    /// Enable users to extend a Model Queue Controller
-    /// </remarks>
     public class MqController
     {
         #region Members

@@ -25,7 +25,7 @@
         /// <summary>
         /// Routes
         /// </summary>
-        public RouteCollection Routes
+        public virtual RouteCollection Routes
         {
             get
             {
@@ -36,7 +36,7 @@
         /// <summary>
         /// Default Router
         /// </summary>
-        public IRouteTo DefaultRouter
+        public virtual IRouteTo DefaultRouter
         {
             get;
             set;

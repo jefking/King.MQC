@@ -17,7 +17,7 @@
         /// <param name="alias"></param>
         /// <param name="type">Type</param>
         /// <param name="methodName">Method Name</param>
-        public void Add(string className, string alias, Type type, string methodName = null)
+        public virtual void Add(string className, string alias, Type type, string methodName = null)
         {
             var route = new RouteEntry
             {

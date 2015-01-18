@@ -1,8 +1,6 @@
 ﻿namespace King.MQC
 {
-    using Newtonsoft.Json;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading;
 
     /// <summary>
@@ -57,7 +55,7 @@
 
             this.data[route].Push(model);
 
-            ThreadPool.QueueUserWorkItem(_ => Dequeue()); //Dequeue on background thread.
+            ThreadPool.QueueUserWorkItem(_ => Dequeue()); //Dequeue on background thread; temp.
         }
 
         /// <summary>

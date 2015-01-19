@@ -19,7 +19,7 @@
         {
             if (null != configurationCallback)
             {
-                //Call Registration
+                configurationCallback.Invoke(new MqcConfiguration());
             }
         }
         #endregion

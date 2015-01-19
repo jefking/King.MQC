@@ -53,11 +53,11 @@
             }
             if (!RouteTable.Routes.ContainsKey(route))
             {
-                throw new InvalidOperationException(string.Format("Unknown route: '{0}.", route));
+                throw new InvalidOperationException(string.Format("Unknown route: '{0}'.", route));
             }
 
-            var entry = RouteTable.Routes[route];
             var paramaters = null == model ? null : new[] { model };
+            var entry = RouteTable.Routes[route];
             var obj = Activator.CreateInstance(entry.Type);
             return entry.Type.InvokeMember(entry.Method, methodFlags, null, obj, paramaters);
         }

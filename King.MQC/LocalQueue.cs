@@ -1,5 +1,6 @@
 ﻿namespace King.MQC
 {
+    using System;
     using System.Collections.Generic;
     using System.Threading;
 
@@ -36,6 +37,11 @@
         /// <param name="direct"></param>
         public LocalQueue(IRouteTo direct)
         {
+            if (null == direct)
+            {
+                throw new ArgumentNullException("direct");
+            }
+
             this.direct = direct;
         }
         #endregion

@@ -21,6 +21,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="King.MQC\bin\Release\King.MQC.dll" target="lib\net451\King.MQC.dll" />
+    <file src="King.MQC\bin\Release\King.MQC.dll" target="lib\net453\King.MQC.dll" />
   </files>
 </package>

@@ -59,6 +59,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Routing\RouteAliasAttribute.cs" />
     <Compile Include="Routing\RouteCollection.cs" />
+    <Compile Include="Routing\RoutedData.cs" />
     <Compile Include="Routing\RouteTable.cs" />
     <Compile Include="Routing\RouteEntry.cs" />
   </ItemGroup>

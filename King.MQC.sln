@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.22310.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "King.MQC", "King.MQC\King.MQC.csproj", "{E0B4FDF7-D936-4C66-9B55-41C4EB09741A}"
 EndProject
@@ -14,6 +14,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "King.MQC.Unit.Test", "King.MQC.Unit.Test\King.MQC.Unit.Test.csproj", "{78A3FD32-C7A4-45B7-8FCF-7DFBBEB99E84}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "King.MQC.MVC", "King.MQC.MVC\King.MQC.MVC.csproj", "{290C127F-9311-4E06-8912-7034C89FF53A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A30F95EE-8ADA-445E-BF09-A60407208E17}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

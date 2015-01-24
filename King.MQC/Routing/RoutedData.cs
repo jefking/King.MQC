@@ -1,5 +1,9 @@
 ﻿namespace King.MQC.Routing
 {
+    /// <summary>
+    /// Routed Data
+    /// </summary>
+    /// <typeparam name="T">Model</typeparam>
     public class RoutedData<T>
     {
         #region Properties

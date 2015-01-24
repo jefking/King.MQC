@@ -24,7 +24,7 @@
 
         #region Constructors
         /// <summary>
-        /// 
+        /// Default Constructor
         /// </summary>
         public LocalQueue()
             : this(new DirectRoute())
@@ -32,9 +32,9 @@
         }
 
         /// <summary>
-        /// 
+        /// Constructor
         /// </summary>
-        /// <param name="direct"></param>
+        /// <param name="direct">Direct Route</param>
         public LocalQueue(IRouteTo direct)
         {
             if (null == direct)

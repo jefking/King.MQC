@@ -53,7 +53,7 @@
             }
             if (!RouteTable.Routes.ContainsKey(route))
             {
-                throw new InvalidOperationException(string.Format("Unknown route: '{0}'.", route));
+                throw new InvalidOperationException(string.Format("Unknown route; route not mapped in RouteTable: '{0}'.", route));
             }
 
             var paramaters = null == model ? null : new[] { model };

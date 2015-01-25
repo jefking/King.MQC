@@ -8,7 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>King.MQC.Unit.Test</RootNamespace>
     <AssemblyName>King.MQC.Unit.Test</AssemblyName>
-    <TargetFrameworkVersion>v4.5.3</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="King.Route">
+      <HintPath>..\packages\King.Route.0.0.0\lib\net35\King.Route.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -64,11 +67,7 @@
     <Compile Include="MqcConfigurationTests.cs" />
     <Compile Include="MqControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Routing\RouteAliasAttributeTests.cs" />
-    <Compile Include="Routing\RouteCollectionTests.cs" />
-    <Compile Include="Routing\RouteEntryTests.cs" />
     <Compile Include="Routes\TestBlahBlah.cs" />
-    <Compile Include="Routing\RouteTableTests.cs" />
     <Compile Include="Routes\TestController.cs" />
     <Compile Include="Routes\TestNonController.cs" />
   </ItemGroup>

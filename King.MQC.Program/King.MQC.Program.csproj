@@ -42,6 +42,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\King.MQC.0.0.3\lib\net451\King.MQC.dll</HintPath>
     </Reference>
+    <Reference Include="King.Route">
+      <HintPath>..\packages\King.Route.0.0.0\lib\net35\King.Route.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>

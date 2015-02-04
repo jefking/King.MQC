@@ -53,14 +53,14 @@
         /// </summary>
         /// <param name="route">Route</param>
         /// <param name="model">Model</param>
-        public virtual void Send(string route, object model = null)
+        public virtual void Send(string route, params object[] models)
         {
             if (!data.ContainsKey(route))
             {
                 this.data.Add(route, new Stack<object>());
             }
 
-            this.data[route].Push(model);
+            this.data[route].Push(models);
 
             ThreadPool.QueueUserWorkItem(_ => Dequeue()); //Dequeue on background thread; temp.
         }
@@ -72,9 +72,9 @@
         /// <param name="route">Route</param>
         /// <param name="model">Model</param>
         /// <returns>Data</returns>
-        public virtual T Get<T>(string route, object model = null)
+        public virtual T Get<T>(string route, params object[] models)
         {
-            return this.direct.Get<T>(route, model);
+            return this.direct.Get<T>(route, models);
         }
 
         /// <summary>

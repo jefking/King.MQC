@@ -1,5 +1,6 @@
 ﻿namespace King.MQC
 {
+    using King.Route;
     using System;
 
     /// <summary>
@@ -15,11 +16,11 @@
         /// Configure
         /// </summary>
         /// <param name="configurationCallback">Configuration Callback</param>
-        public static void Configure(Action<MqcConfiguration> configurationCallback)
+        public static void Configure(Action<RoutingConfiguration> configurationCallback)
         {
             if (null != configurationCallback)
             {
-                configurationCallback.Invoke(new MqcConfiguration());
+                configurationCallback.Invoke(new RoutingConfiguration());
             }
         }
         #endregion

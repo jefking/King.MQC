@@ -1,5 +1,7 @@
 ﻿namespace King.MQC.Program
 {
+    using King.Route;
+
     public class Startup : MqcApplication
     {
         public override void Start()

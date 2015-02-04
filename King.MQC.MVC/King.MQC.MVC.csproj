@@ -49,7 +49,7 @@
       <HintPath>..\packages\King.MQC.0.0.4\lib\net45\King.MQC.dll</HintPath>
     </Reference>
     <Reference Include="King.Route">
-      <HintPath>..\packages\King.Route.0.0.0\lib\net35\King.Route.dll</HintPath>
+      <HintPath>..\packages\King.Route.0.0.1\lib\net45\King.Route.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">

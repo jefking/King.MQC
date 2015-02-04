@@ -1,5 +1,6 @@
 ﻿namespace King.MQC.Unit.Test
 {
+    using King.Route;
     using NUnit.Framework;
 
     [TestFixture]
@@ -20,7 +21,7 @@
         }
 
         private byte callCount = 0;
-        private void Call(MqcConfiguration config)
+        private void Call(RoutingConfiguration config)
         {
             this.callCount++;
         }

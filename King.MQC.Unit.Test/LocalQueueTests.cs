@@ -1,9 +1,9 @@
 ﻿namespace King.MQC.Unit.Test
 {
+    using King.Route;
     using NSubstitute;
     using NUnit.Framework;
     using System;
-    using System.Threading;
 
     [TestFixture]
     public class LocalQueueTests
@@ -11,7 +11,7 @@
         [SetUp]
         public void Setup()
         {
-            var config = new MqcConfiguration();
+            var config = new RoutingConfiguration();
             config.MapMqcAttributeRoutes();
         }
 

@@ -45,7 +45,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="King.Route">
-      <HintPath>..\packages\King.Route.0.0.0\lib\net35\King.Route.dll</HintPath>
+      <HintPath>..\packages\King.Route.0.0.1\lib\net45\King.Route.dll</HintPath>
     </Reference>
     <Reference Include="System" />
   </ItemGroup>

@@ -38,9 +38,9 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="King.MQC, Version=1.0.3.1, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="King.MQC, Version=1.0.3.2, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\King.MQC.0.0.3\lib\net451\King.MQC.dll</HintPath>
+      <HintPath>..\packages\King.MQC.0.0.4\lib\net45\King.MQC.dll</HintPath>
     </Reference>
     <Reference Include="King.Route">
       <HintPath>..\packages\King.Route.0.0.0\lib\net35\King.Route.dll</HintPath>

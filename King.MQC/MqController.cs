@@ -1,6 +1,7 @@
 ﻿namespace King.MQC
 {
     using System;
+    using King.Route;
 
     /// <summary>
     /// Model Queue Controller

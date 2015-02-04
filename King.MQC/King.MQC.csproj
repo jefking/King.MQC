@@ -50,12 +50,9 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DirectRoute.cs" />
     <Compile Include="GlobalConfiguration.cs" />
-    <Compile Include="Interfaces.cs" />
     <Compile Include="LocalQueue.cs" />
     <Compile Include="MqcApplication.cs" />
-    <Compile Include="MqcConfiguration.cs" />
     <Compile Include="MqController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

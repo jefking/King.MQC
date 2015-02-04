@@ -60,11 +60,9 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="DirectRouteTests.cs" />
     <Compile Include="GlobalConfigurationTests.cs" />
     <Compile Include="LocalQueueTests.cs" />
     <Compile Include="MqcApplicationTests.cs" />
-    <Compile Include="MqcConfigurationTests.cs" />
     <Compile Include="MqControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Routes\TestBlahBlah.cs" />

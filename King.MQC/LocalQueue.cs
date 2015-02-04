@@ -15,7 +15,7 @@
         /// Key:String; Route
         /// Stack:String; data in Json
         /// </summary>
-        protected readonly IDictionary<string, Stack<object>> data = new Dictionary<string, Stack<object>>();
+        protected readonly IDictionary<string, Stack<object[]>> data = new Dictionary<string, Stack<object[]>>();
 
         /// <summary>
         /// Direct Route to
@@ -57,7 +57,7 @@
         {
             if (!data.ContainsKey(route))
             {
-                this.data.Add(route, new Stack<object>());
+                this.data.Add(route, new Stack<object[]>());
             }
 
             this.data[route].Push(models);

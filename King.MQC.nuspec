@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>King.MQC</id>
-    <version>0.0.4</version>
+    <version>0.0.5</version>
     <title>King.MQC</title>
     <authors>Jef King</authors>
     <owners>Jef King</owners>
@@ -12,12 +12,12 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Model Queue Controller</description>
     <summary>Model Queue Controller</summary>
-    <releaseNotes>ALPHA; first version with in memory queue.</releaseNotes>
+    <releaseNotes>ALPHA; routing is broken out into seperate dll.</releaseNotes>
     <copyright>Jef King</copyright>
     <language>en-US</language>
     <tags>Model Queue Controller MQC Route Routing Router fault-tolerance queuing dequeue dequeuing resiliant scalable throughput King.MQC King.Route</tags>
     <dependencies>
-      <dependency id="King.Route" />
+      <dependency id="King.Route" version="0.0.1" />
     </dependencies>
   </metadata>
   <files>

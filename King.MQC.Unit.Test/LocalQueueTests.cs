@@ -4,6 +4,7 @@
     using NSubstitute;
     using NUnit.Framework;
     using System;
+    using System.Threading;
 
     [TestFixture]
     public class LocalQueueTests
@@ -50,7 +51,7 @@
 
             var queue = new LocalQueue();
             queue.Send("Test/Set", expected);
-
+            
             var value = queue.Get<int>("Test/Get");
 
             Assert.AreEqual(expected, value);
@@ -62,11 +63,11 @@
             var data = Guid.NewGuid();
             var route = Guid.NewGuid().ToString();
             var direct = Substitute.For<IRouteTo>();
-            direct.Get<Guid>(route, null).Returns(data);
+            direct.Get<Guid>(route, Arg.Any<object[]>()).Returns(data);
 
             var queue = new LocalQueue(direct);
             queue.Send(route, data);
-            var value = queue.Get<Guid>(route);
+            var value = queue.Get<Guid>(route, null);
 
             Assert.AreEqual(data, value);
             direct.Received().Get<Guid>(route, null);

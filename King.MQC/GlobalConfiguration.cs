@@ -1,7 +1,7 @@
 ﻿namespace King.MQC
 {
-    using King.Route;
     using System;
+    using King.Route;
 
     /// <summary>
     /// MQC Global Configuration

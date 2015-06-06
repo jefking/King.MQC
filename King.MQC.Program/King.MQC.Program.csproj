@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>King.MQC.Program</RootNamespace>
     <AssemblyName>King.MQC.Program</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -39,8 +39,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="King.MQC, Version=1.0.3.2, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\King.MQC.0.0.4\lib\net45\King.MQC.dll</HintPath>
+      <HintPath>..\packages\King.MQC.0.0.5\lib\net45\King.MQC.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="King.Route">
       <HintPath>..\packages\King.Route.0.0.1\lib\net45\King.Route.dll</HintPath>

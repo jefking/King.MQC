@@ -62,7 +62,7 @@
 
             this.data[route].Push(models);
 
-            ThreadPool.QueueUserWorkItem(_ => Dequeue()); //Dequeue on background thread; temp.
+            ThreadPool.QueueUserWorkItem(_=> Dequeue()); //Dequeue on background thread; temp.
         }
 
         /// <summary>
